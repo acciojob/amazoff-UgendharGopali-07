@@ -27,8 +27,10 @@ public class OrderRepository {
     public void savePartner(String partnerId){
         // your code here
         // create a new partner with given partnerId and save it
+        partnerMap.put(partnerId,new DeliveryPartner(partnerId));
     }
 
+    /*
     public void saveOrderPartnerMap(String orderId, String partnerId){
         if(orderMap.containsKey(orderId) && partnerMap.containsKey(partnerId)){
             // your code here
@@ -81,4 +83,6 @@ public class OrderRepository {
         // your code here
         // code should return string in format HH:MM
     }
+
+     */
 }
