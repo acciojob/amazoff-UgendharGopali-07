@@ -21,6 +21,7 @@ public class OrderRepository {
 
     public void saveOrder(Order order){
         // your code here
+        orderMap.put(order.getId(),order);
     }
 
     public void savePartner(String partnerId){
