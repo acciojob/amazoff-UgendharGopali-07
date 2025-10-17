@@ -19,11 +19,11 @@ public class OrderService {
         orderRepository.savePartner(partnerId);
     }
 
-    /*
     public void createOrderPartnerPair(String orderId, String partnerId){
         orderRepository.saveOrderPartnerMap(orderId, partnerId);
     }
 
+    /*
     public Order getOrderById(String orderId){
         return orderRepository.findOrderById(orderId);
     }

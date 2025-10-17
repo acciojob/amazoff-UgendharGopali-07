@@ -30,16 +30,25 @@ public class OrderRepository {
         partnerMap.put(partnerId,new DeliveryPartner(partnerId));
     }
 
-    /*
     public void saveOrderPartnerMap(String orderId, String partnerId){
         if(orderMap.containsKey(orderId) && partnerMap.containsKey(partnerId)){
             // your code here
             //add order to given partner's order list
+            if(!partnerToOrderMap.containsKey(partnerId)){
+                partnerToOrderMap.put(partnerId,new HashSet<>());
+            }
+            partnerToOrderMap.get(partnerId).add(orderId);
+
             //increase order count of partner
+            int count=partnerMap.get(partnerId).getNumberOfOrders();
+            partnerMap.get(partnerId).setNumberOfOrders(count+1);
+
             //assign partner to this order
+            orderToPartnerMap.put(orderId,partnerId);
         }
     }
 
+    /*
     public Order findOrderById(String orderId){
         // your code here
     }
