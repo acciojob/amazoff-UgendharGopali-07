@@ -44,14 +44,13 @@ public class OrderController {
         orderService.createOrderPartnerPair(orderId,partnerId);
         return new ResponseEntity<>("New order-partner pair added successfully", HttpStatus.CREATED);
     }
-    /*
 
     @GetMapping("/get-order-by-id/{orderId}")
     public ResponseEntity<Order> getOrderById(@PathVariable String orderId){
 
         Order order= null;
         //order should be returned with an orderId.
-
+        order=orderService.getOrderById(orderId);
         return new ResponseEntity<>(order, HttpStatus.CREATED);
     }
 
@@ -61,10 +60,11 @@ public class OrderController {
         DeliveryPartner deliveryPartner = null;
 
         //deliveryPartner should contain the value given by partnerId
-
+        deliveryPartner=orderService.getPartnerById(partnerId);
         return new ResponseEntity<>(deliveryPartner, HttpStatus.CREATED);
     }
 
+    /*
     @GetMapping("/get-order-count-by-partner-id/{partnerId}")
     public ResponseEntity<Integer> getOrderCountByPartnerId(@PathVariable String partnerId){
 

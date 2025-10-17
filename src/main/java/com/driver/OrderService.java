@@ -23,7 +23,6 @@ public class OrderService {
         orderRepository.saveOrderPartnerMap(orderId, partnerId);
     }
 
-    /*
     public Order getOrderById(String orderId){
         return orderRepository.findOrderById(orderId);
     }
@@ -32,6 +31,7 @@ public class OrderService {
         return orderRepository.findPartnerById(partnerId);
     }
 
+    /*
     public Integer getOrderCountByPartnerId(String partnerId){
         return orderRepository.findOrderCountByPartnerId(partnerId);
     }

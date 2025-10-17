@@ -48,14 +48,22 @@ public class OrderRepository {
         }
     }
 
-    /*
     public Order findOrderById(String orderId){
         // your code here
+        if(!orderMap.containsKey(orderId)){
+            return null;
+        }
+        return orderMap.get(orderId);
     }
 
     public DeliveryPartner findPartnerById(String partnerId){
         // your code here
+        if(!partnerMap.containsKey(partnerId)){
+            return null;
+        }
+        return partnerMap.get(partnerId);
     }
+    /*
 
     public Integer findOrderCountByPartnerId(String partnerId){
         // your code here
