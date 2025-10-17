@@ -64,14 +64,13 @@ public class OrderController {
         return new ResponseEntity<>(deliveryPartner, HttpStatus.CREATED);
     }
 
-    /*
     @GetMapping("/get-order-count-by-partner-id/{partnerId}")
     public ResponseEntity<Integer> getOrderCountByPartnerId(@PathVariable String partnerId){
 
         Integer orderCount = 0;
 
         //orderCount should denote the orders given by a partner-id
-
+        orderCount=orderService.getOrderCountByPartnerId(partnerId);
         return new ResponseEntity<>(orderCount, HttpStatus.CREATED);
     }
 
@@ -80,7 +79,7 @@ public class OrderController {
         List<String> orders = null;
 
         //orders should contain a list of orders by PartnerId
-
+        orders=orderService.getOrdersByPartnerId(partnerId);
         return new ResponseEntity<>(orders, HttpStatus.CREATED);
     }
 
@@ -89,9 +88,11 @@ public class OrderController {
         List<String> orders = null;
 
         //Get all orders
+        orders=orderService.getAllOrders();
         return new ResponseEntity<>(orders, HttpStatus.CREATED);
     }
 
+    /*
     @GetMapping("/get-count-of-unassigned-orders")
     public ResponseEntity<Integer> getCountOfUnassignedOrders(){
         Integer countOfOrders = 0;

@@ -63,21 +63,30 @@ public class OrderRepository {
         }
         return partnerMap.get(partnerId);
     }
-    /*
 
     public Integer findOrderCountByPartnerId(String partnerId){
         // your code here
+        if(!partnerMap.containsKey(partnerId)){
+            return 0;
+        }
+        return partnerMap.get(partnerId).getNumberOfOrders();
     }
 
     public List<String> findOrdersByPartnerId(String partnerId){
         // your code here
+        HashSet<String> set=partnerToOrderMap.get(partnerId);
+        List<String> list=new ArrayList<>(set);
+        return list;
     }
 
     public List<String> findAllOrders(){
         // your code here
         // return list of all orders
+        List<String> list=new ArrayList<>(orderMap.keySet());
+        return list;
     }
 
+    /*
     public void deletePartner(String partnerId){
         // your code here
         // delete partner by ID

@@ -31,7 +31,6 @@ public class OrderService {
         return orderRepository.findPartnerById(partnerId);
     }
 
-    /*
     public Integer getOrderCountByPartnerId(String partnerId){
         return orderRepository.findOrderCountByPartnerId(partnerId);
     }
@@ -44,6 +43,7 @@ public class OrderService {
         return orderRepository.findAllOrders();
     }
 
+    /*
     public void deletePartner(String partnerId){
         orderRepository.deletePartner(partnerId);
     }
