@@ -43,7 +43,6 @@ public class OrderService {
         return orderRepository.findAllOrders();
     }
 
-    /*
     public void deletePartner(String partnerId){
         orderRepository.deletePartner(partnerId);
     }
@@ -52,6 +51,7 @@ public class OrderService {
         orderRepository.deleteOrder(orderId);
     }
 
+    /*
     public Integer getCountOfUnassignedOrders(){
         return orderRepository.findCountOfUnassignedOrders();
     }
