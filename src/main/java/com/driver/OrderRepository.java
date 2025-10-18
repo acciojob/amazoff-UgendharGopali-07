@@ -117,19 +117,48 @@ public class OrderRepository {
         orderMap.remove(orderId);
     }
 
-    /*
     public Integer findCountOfUnassignedOrders(){
         // your code here
+        int count=0;
+        for(String order:orderMap.keySet()){
+            if(!orderToPartnerMap.containsKey(order)){
+                count++;
+            }
+        }
+        return count;
     }
 
     public Integer findOrdersLeftAfterGivenTimeByPartnerId(String timeString, String partnerId){
         // your code here
+        int count=0;
+        String[] arr=timeString.split(":");
+        int delTime=(Integer.parseInt(arr[0])*60)+(Integer.parseInt(arr[1]));
+        for(String orderId:partnerToOrderMap.get(partnerId)){
+            Order order=orderMap.get(orderId);
+            if(delTime<order.getDeliveryTime()){
+                count++;
+            }
+        }
+        return count;
     }
 
     public String findLastDeliveryTimeByPartnerId(String partnerId){
         // your code here
         // code should return string in format HH:MM
+        int time=0;
+        if(partnerToOrderMap.containsKey(partnerId)){
+            HashSet<String> set=partnerToOrderMap.get(partnerId);
+            for(String order:set){
+                if(time<orderMap.get(order).getDeliveryTime()){
+                    time=orderMap.get(order).getDeliveryTime();
+                }
+            }
+        }
+        int hours=time/60;
+        int min=time%60;
+        String lastTime=String.format("%02d:%02d",hours,min);
+//        (OR)
+//        String lastTime=(hours<10?"0"+hours:hours)+":"+(min<10?"0"+min:min);
+        return lastTime;
     }
-
-     */
 }

@@ -92,13 +92,12 @@ public class OrderController {
         return new ResponseEntity<>(orders, HttpStatus.CREATED);
     }
 
-    /*
     @GetMapping("/get-count-of-unassigned-orders")
     public ResponseEntity<Integer> getCountOfUnassignedOrders(){
         Integer countOfOrders = 0;
 
         //Count of orders that have not been assigned to any DeliveryPartner
-
+        countOfOrders=orderService.getCountOfUnassignedOrders();
         return new ResponseEntity<>(countOfOrders, HttpStatus.CREATED);
     }
 
@@ -108,7 +107,7 @@ public class OrderController {
         Integer countOfOrders = 0;
 
         //countOfOrders that are left after a particular time of a DeliveryPartner
-
+        countOfOrders=orderService.getOrdersLeftAfterGivenTimeByPartnerId(time,partnerId);
         return new ResponseEntity<>(countOfOrders, HttpStatus.CREATED);
     }
 
@@ -117,10 +116,10 @@ public class OrderController {
         String time = null;
 
         //Return the time when that partnerId will deliver his last delivery order.
-
+        time=orderService.getLastDeliveryTimeByPartnerId(partnerId);
         return new ResponseEntity<>(time, HttpStatus.CREATED);
     }
-    */
+
     @DeleteMapping("/delete-partner-by-id/{partnerId}")
     public ResponseEntity<String> deletePartnerById(@PathVariable String partnerId){
 
